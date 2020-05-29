@@ -1,0 +1,2 @@
+webpackJsonp([51],{LztQ:function(e,t){},jZsT:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i={render:function(){var e=this.$createElement;return(this._self._c||e)("div")},staticRenderFns:[]};var r=n("C7Lr")({mounted:function(){this.$notify({title:"提示",message:"该功能正在建设中！",type:"warning",durtion:2e3})}},i,!1,function(e){n("LztQ")},null,null);t.default=r.exports}});
+//# sourceMappingURL=51.edf39765c41c6925b416.js.map
