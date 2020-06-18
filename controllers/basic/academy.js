@@ -35,16 +35,27 @@ class Academy {
                         data: []
                     })
                 } else {
-                    result.forEach(item => {
-                        //item.id = item.id + ''
-                        item.academyType = item.academy_type 
+                    const resData =result.map(item => {
+                        return{
+                            academyType:item.academy_type,
+                            code:item.code, 
+                            createDate:item.create_date,
+                            creator: item.creator,
+                            id: item.id,
+                            intro: item.intro,
+                            isDeleted: item.is_deleted,
+                            modifier: item.modifier,
+                            modifyDate: item.modify_date,
+                            name: item.name,
+                            remarks: item.remarks
+                        }
                     })
                     res.send({
                         status: 1,
                         state: 'success',
                         message: '操作成功',
                         total: count,
-                        data: result
+                        data: resData
                     })
                 }
                 

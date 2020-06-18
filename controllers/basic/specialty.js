@@ -35,9 +35,8 @@ class Specialty {
                         data: []
                     })
                 } else {
-                    const resData=[]
-                    result.forEach(item =>{
-                        resData.push({
+                    const resData=result.map(item =>{
+                        return{
                             academyId: item.academy_id,
                             authenticationStatus: item.authentication_status,
                             code: item.code,
@@ -53,7 +52,7 @@ class Specialty {
                             modifyDate: item.modify_date,
                             name: item.name,
                             remarks: item.remarks
-                        }) 
+                        } 
                     })                  
                     res.send({
                         status: 1,
