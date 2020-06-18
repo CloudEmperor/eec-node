@@ -1,8 +1,8 @@
 const db = require('../../config/db')
 
 const sql = {
-    insert: `INSERT INTO cam_specialty(name, code, academy_type, intro) VALUES(?,?,?,?)`,
-    update: `UPDATE cam_specialty SET name=?, code=?, academy_type=?, intro=? WHERE id=?`,
+    insert: `INSERT INTO cam_specialty(academy_id, authentication_status, code, intro, isfirst, leader, length_of_schooling, name) VALUES(?,?,?,?,?,?,?,?)`,
+    update: `UPDATE cam_specialty SET academy_id=?, authentication_status=?, code=?, intro=?, isfirst=?, leader=?, length_of_schooling=?, name=? WHERE id=?`,
     delete: `DELETE FROM cam_specialty WHERE id=?`,
     queryById: `SELECT * FROM cam_specialty WHERE id=?`,
     count: `SELECT count(*) as count from cam_specialty`,
@@ -68,9 +68,9 @@ class Specialty {
         })
     }
     add(req, res, next) {
-        const { name, code, academyType, intro } = req.body
+        const { academyId, authenticationStatus, code, intro, isfirst, leader, lengthOfSchooling, name} = req.body
         const params = []
-        params.push(name, code, academyType, intro)
+        params.push(academyId, authenticationStatus, code, intro, isfirst, leader, lengthOfSchooling, name)
         console.log('params', params)
         console.log(sql.insert)
         db.query(sql.insert, params, function (err, result) {
@@ -93,9 +93,9 @@ class Specialty {
         })
     }
     edit(req, res, next) {
-        const { name, code, academyType, intro, id } = req.body
+        const { academyId, authenticationStatus, code, intro, isfirst, leader, lengthOfSchooling, name, id } = req.body
         const params = []
-        params.push(name, code, academyType, intro, id)
+        params.push(academyId, authenticationStatus, code, intro, isfirst, leader, lengthOfSchooling, name, id)
         console.log('params', params)
         console.log(sql.update)
         db.query(sql.update, params, function (err, result) {
